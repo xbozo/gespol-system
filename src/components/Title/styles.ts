@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	width: 100%;
-	height: 12rem;
-	color: #000;
-	margin-top: 3rem;
+    width: 100%;
+    color: #000;
+    margin: 3rem 0;
 
-	h1 {
-		font-weight: bold;
-		font-size: 40px;
-	}
+    h1 {
+        font-weight: bold;
+        font-size: 40px;
+    }
 `;

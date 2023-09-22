@@ -1,25 +1,11 @@
 {
   "plannings": [
     {
-      "id": 1,
-      "date": "2023-10-01",
-      "location": "Local A",
-      "title": "Planejamento 1",
-      "responsible": "João"
-    },
-    {
-      "id": 2,
-      "date": "2023-10-05",
-      "location": "Local B",
-      "title": "Planejamento 2",
-      "responsible": "Maria"
-    },
-    {
       "title": "123",
       "location": "123",
       "date": "1111-11-11",
       "responsible": "123",
-      "id": 3
+      "id": 1
     }
   ]
 }

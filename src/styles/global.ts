@@ -43,4 +43,22 @@ export const GlobalStyle = createGlobalStyle`
         border: none;
         cursor: pointer;
     }
+
+    /** Scroll Bar */
+
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(77, 77, 87);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #bbb;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgb(18, 18, 20);
+    }
 `;

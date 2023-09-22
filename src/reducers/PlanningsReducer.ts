@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { PlanningType } from "./../@types/PlanningType";
 
 type SetAction = {
@@ -17,18 +18,18 @@ type EditAction = {
         newLocation: string;
         newDate: string;
         newResponsible: string;
-        id: number;
+        id: string;
     };
 };
 
 type RemoveAction = {
     type: "removePlanning";
     payload: {
-        id: number;
+        id: string;
     };
 };
 
-type PlanningActions = SetAction | AddAction | EditAction | RemoveAction;
+export type PlanningActions = SetAction | AddAction | EditAction | RemoveAction;
 
 export function PlanningsReducer(
     plannings: PlanningType[],
@@ -46,7 +47,7 @@ export function PlanningsReducer(
                     location: action.payload.location,
                     date: action.payload.date,
                     responsible: action.payload.responsible,
-                    id: plannings.length + 1,
+                    id: uuidv4(),
                 },
             ];
 

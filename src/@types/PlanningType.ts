@@ -3,5 +3,5 @@ export type PlanningType = {
     location: string;
     date: string;
     responsible: string;
-    id: number;
+    id: string;
 };

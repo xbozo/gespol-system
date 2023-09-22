@@ -18,7 +18,6 @@ export const Content = styled.section`
     .form {
         display: flex;
         gap: 1rem;
-        margin-top: 3rem;
 
         input {
             padding: 1rem;

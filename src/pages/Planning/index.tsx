@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import { PlanningType } from "../../@types/PlanningType";
 
@@ -42,7 +43,7 @@ export function Planning() {
             location: locationNameInput,
             date: dateInput,
             responsible: responsibleInput,
-            id: plannings.length + 1,
+            id: uuidv4(),
         };
 
         api.post("/plannings", newPlanning).then((response) => {
@@ -56,6 +57,17 @@ export function Planning() {
         setLocationNameInput("");
         setResponsibleInput("");
         setDateInput("");
+    }
+
+    function handleDeletePlanning(id: string) {
+        api.delete(`/plannings/${id}`).then(() => {
+            dispatch({
+                type: "removePlanning",
+                payload: {
+                    id,
+                },
+            });
+        });
     }
 
     return (
@@ -108,6 +120,8 @@ export function Planning() {
                             responsible={item.responsible}
                             date={item.date}
                             id={item.id}
+                            onDelete={handleDeletePlanning}
+                            dispatch={dispatch}
                         />
                     ))}
                 </div>
