@@ -10,7 +10,7 @@ import { api } from "../../libs/axios";
 import { PlanningsReducer } from "../../reducers/PlanningsReducer";
 import * as C from "./styles";
 
-export function Planning() {
+export function Planejamento() {
     const [plannings, dispatch] = useReducer(PlanningsReducer, []);
 
     const [titleInput, setTitleInput] = useState<string>("");
@@ -80,27 +80,23 @@ export function Planning() {
                     <input
                         type="text"
                         placeholder="Título da Operação"
-                        value={titleInput}
                         onChange={(e) => setTitleInput(e.target.value)}
                         className="crud-input"
                     />
                     <input
                         type="text"
                         placeholder="Local do Planejamento"
-                        value={locationNameInput}
                         onChange={(e) => setLocationNameInput(e.target.value)}
                         className="crud-input"
                     />
                     <input
                         type="text"
                         placeholder="Responsável"
-                        value={responsibleInput}
                         onChange={(e) => setResponsibleInput(e.target.value)}
                         className="crud-input"
                     />
                     <input
                         type="date"
-                        value={dateInput}
                         onChange={(e) => setDateInput(e.target.value)}
                         className="crud-input"
                     />

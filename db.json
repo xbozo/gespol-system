@@ -1,39 +1,11 @@
 {
   "plannings": [
     {
-      "title": "123",
-      "location": "123",
-      "date": "2020-05-01",
-      "responsible": "123",
-      "id": "5ca94167-d3bc-4457-a48d-ec9dfae25e12"
-    },
-    {
-      "title": "123",
-      "location": "123",
-      "date": "2020-04-01",
-      "responsible": "123",
-      "id": "130cb8e2-bec6-4ccd-b434-9e1ab3fc4f3c"
-    },
-    {
-      "title": "123",
-      "location": "123",
-      "date": "2020-05-31",
-      "responsible": "123",
-      "id": "583a9644-1efb-4676-b8f1-e7fb3cea56fb"
-    },
-    {
       "title": "bbb",
-      "location": "bbb",
-      "date": "2020-07-31",
-      "responsible": "sdasd",
-      "id": "0f6ae4e9-390a-4d80-b95d-d7ed9216f06f"
-    },
-    {
-      "title": "123",
       "location": "123",
-      "date": "2020-05-31",
+      "date": "2000-02-10",
       "responsible": "123",
-      "id": "b2bcefd4-af80-4e6f-9666-95a29a2e40b2"
+      "id": "006bceb2-d3e4-4528-b8e1-756bc8f4e803"
     }
   ]
 }
