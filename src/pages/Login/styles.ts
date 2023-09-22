@@ -40,7 +40,7 @@ export const LoginContainer = styled.main`
 export const LoginArea = styled.div`
 	.gespal-logo {
 		text-align: center;
-		margin-bottom: 3rem;
+		margin-bottom: 6rem;
 
 		svg {
 			height: 6rem;
@@ -51,7 +51,7 @@ export const LoginArea = styled.div`
 	form {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1.5rem;
 
 		input {
 			padding: 0.8rem;
@@ -64,20 +64,31 @@ export const LoginArea = styled.div`
 			}
 		}
 
-		button {
-			padding: 0.8rem;
+		a {
 			border-radius: 8px;
 			transition: all ease 0.2s;
 			margin-bottom: 1.6rem;
 			margin-top: 0.8rem;
 
-			a {
-				color: #000;
-			}
-
 			&:hover {
 				filter: brightness(0.7);
 			}
+
+			button {
+				width: 100%;
+				padding: 0.8rem;
+				border-radius: 8px;
+				color: #000;
+			}
+		}
+	}
+
+	.forgot-password {
+		color: #999;
+		transition: all ease 0.2s;
+
+		&:hover {
+			filter: brightness(0.7);
 		}
 	}
 `;

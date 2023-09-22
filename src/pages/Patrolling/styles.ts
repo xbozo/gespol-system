@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     display: flex;
     color: #000;
 `;
@@ -17,18 +18,17 @@ export const Content = styled.section`
 
     .form {
         display: flex;
-        gap: 1rem;
-        margin-top: 3rem;
+        gap: 10px;
 
         input {
-            padding: 1rem;
+            padding: 10px;
             border: 1px solid gray;
             border-radius: 5px;
         }
 
         button {
             border-radius: 5px;
-            padding: 0 1rem;
+            padding: 0 10px;
             background-color: #008744;
             color: #fff;
 
@@ -39,7 +39,7 @@ export const Content = styled.section`
     }
 
     .plannings-list {
-        margin-top: 5rem;
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         gap: 10px;

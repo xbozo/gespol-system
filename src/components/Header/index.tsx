@@ -5,32 +5,38 @@ import * as C from "./styles";
 import { BsFillGridFill } from "react-icons/bs";
 
 type Props = {
-	activeItem: string;
+    activeItem: string;
 };
 
 export function Header({ activeItem }: Props) {
-	return (
-		<C.Header>
-			<img src={logo} alt="" />
-			<Link to="" id={activeItem === "dashboard" ? "active" : ""}>
-				<BsFillGridFill />
-				<span>Dashboard</span>
-			</Link>
-			<Link to="" id={activeItem === "planning" ? "active" : ""}>
-				<span>Planejamento</span>
-			</Link>
-			<Link to="" id={activeItem === "scalling" ? "active" : ""}>
-				<span>Escalamento</span>
-			</Link>
-			<Link to="" id={activeItem === "patrolling" ? "active" : ""}>
-				<span>Patrulhamento</span>
-			</Link>
-			<Link to="" id={activeItem === "management" ? "active" : ""}>
-				<span>Gestão</span>
-			</Link>
-			<Link to="/" className="leave">
-				<button>Sair</button>
-			</Link>
-		</C.Header>
-	);
+    return (
+        <C.Header>
+            <img src={logo} alt="" />
+            <Link
+                to="/dashboard"
+                id={activeItem === "dashboard" ? "active" : ""}
+            >
+                <BsFillGridFill />
+                <span>Dashboard</span>
+            </Link>
+            <Link to="/planning" id={activeItem === "planning" ? "active" : ""}>
+                <span>Planejamento</span>
+            </Link>
+            <Link to="" id={activeItem === "scalling" ? "active" : ""}>
+                <span>Escalamento</span>
+            </Link>
+            <Link
+                to="/patrolling"
+                id={activeItem === "patrolling" ? "active" : ""}
+            >
+                <span>Patrulhamento</span>
+            </Link>
+            <Link to="" id={activeItem === "management" ? "active" : ""}>
+                <span>Gestão</span>
+            </Link>
+            <Link to="/" className="leave">
+                <button>Sair</button>
+            </Link>
+        </C.Header>
+    );
 }

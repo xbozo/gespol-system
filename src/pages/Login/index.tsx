@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import Splash from "../../assets/image_3splash.png";
+import logo from "../../assets/logoGespol.svg";
 import * as C from "./styles";
 
-import { BsFillCarFrontFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export function Login() {
 	return (
@@ -14,18 +14,20 @@ export function Login() {
 			<C.LoginContainer>
 				<C.LoginArea>
 					<div className="gespal-logo">
-						<BsFillCarFrontFill />
+						<img src={logo} alt="" />
 					</div>
 
 					<form>
 						<input type="text" placeholder="Usuário" />
 						<input type="password" placeholder="Senha" />
-						<button>
-							<Link to="/dashboard">Entrar</Link>
-						</button>
+						<Link to="/dashboard">
+							<button>Entrar</button>
+						</Link>
 					</form>
 
-					<Link to="/">Esqueceu sua senha?</Link>
+					<Link to="/" className="forgot-password">
+						Esqueceu sua senha?
+					</Link>
 				</C.LoginArea>
 			</C.LoginContainer>
 		</C.Container>

@@ -1,37 +1,24 @@
-import { useEffect, useReducer, useState } from "react";
+import { useState } from "react";
 
 import { PlanningType } from "../../@types/PlanningType";
-
 import { Header } from "../../components/Header";
 import { PlanningItem } from "../../components/PlanningItem";
 import { Title } from "../../components/Title";
-import { api } from "../../libs/axios";
-import { PlanningsReducer } from "../../reducers/PlanningsReducer";
 import * as C from "./styles";
 
-export function Planning() {
-    const [plannings, dispatch] = useReducer(PlanningsReducer, []);
-
+export function Patrolling() {
     const [titleInput, setTitleInput] = useState<string>("");
     const [locationNameInput, setLocationNameInput] = useState<string>("");
     const [responsibleInput, setResponsibleInput] = useState<string>("");
     const [dateInput, setDateInput] = useState("");
 
-    useEffect(() => {
-        api.get<PlanningType[]>("/plannings").then((response) => {
-            dispatch({
-                type: "setPlannings",
-                payload: response.data,
-            });
-        });
-    }, []);
+    const [plannings, setPlannings] = useState<PlanningType[]>([]);
 
     function handleAddPlanning() {
         if (
             titleInput.trim() === "" ||
             locationNameInput.trim() === "" ||
-            responsibleInput.trim() === "" ||
-            dateInput.trim() === ""
+            responsibleInput.trim() === ""
         ) {
             alert("Por favor, preencha todos os campos obrigatórios.");
             return;
@@ -42,32 +29,25 @@ export function Planning() {
             location: locationNameInput,
             date: dateInput,
             responsible: responsibleInput,
-            id: plannings.length + 1,
         };
 
-        api.post("/plannings", newPlanning).then((response) => {
-            dispatch({
-                type: "addPlanning",
-                payload: response.data,
-            });
-        });
+        setPlannings([...plannings, newPlanning]);
 
         setTitleInput("");
         setLocationNameInput("");
         setResponsibleInput("");
-        setDateInput("");
     }
 
     return (
         <C.Container>
-            <Header activeItem={"planning"} />
+            <Header activeItem={"patrolling"} />
 
             <C.Content>
-                <Title title={"Planejamento"} />
+                <Title title={"Patrulhamento"} />
                 <div className="form">
                     <input
                         type="text"
-                        placeholder="Título da Operação"
+                        placeholder="Título do Post"
                         value={titleInput}
                         onChange={(e) => setTitleInput(e.target.value)}
                         className="crud-input"
@@ -88,6 +68,7 @@ export function Planning() {
                     />
                     <input
                         type="date"
+                        placeholder="Data da Operação"
                         value={dateInput}
                         onChange={(e) => setDateInput(e.target.value)}
                         className="crud-input"
@@ -96,7 +77,7 @@ export function Planning() {
                         onClick={() => handleAddPlanning()}
                         className="bg-blue-500 rounded py-2 ease-in-out duration-200 hover:bg-blue-600"
                     >
-                        Adicionar Operação
+                        Adicionar Post
                     </button>
                 </div>
                 <div className="plannings-list">
@@ -107,7 +88,6 @@ export function Planning() {
                             location={item.location}
                             responsible={item.responsible}
                             date={item.date}
-                            id={item.id}
                         />
                     ))}
                 </div>
