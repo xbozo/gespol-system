@@ -34,7 +34,7 @@ export function Planning() {
             responsibleInput.trim() === "" ||
             dateInput.trim() === ""
         ) {
-            alert("Por favor, preencha todos os campos obrigatórios.");
+            alert("Preencha corretamente todos os campos.");
             return;
         }
 

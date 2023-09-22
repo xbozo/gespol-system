@@ -9,9 +9,9 @@ export const Header = styled.header`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
 
-    img {
+    .logo {
         width: 20rem;
         margin-bottom: 2.4rem;
     }
@@ -19,12 +19,11 @@ export const Header = styled.header`
     a {
         max-width: 20rem;
         width: 100%;
-        padding: 1.2rem 0;
-        padding-left: 0.8rem;
+        padding: 1.2rem 0.8rem;
         border-radius: 8px;
         font-size: 18px;
         display: flex;
-        gap: 0.5rem;
+        gap: 0.8rem;
         align-items: center;
         color: #fff;
         transition: all ease-in-out 0.15s;
@@ -34,7 +33,8 @@ export const Header = styled.header`
         }
 
         svg {
-            height: 2.4rem;
+            height: 2rem;
+            width: 2rem;
         }
     }
 
@@ -42,12 +42,11 @@ export const Header = styled.header`
         max-width: 20rem;
         width: 100%;
         display: flex;
-        padding: 1.2rem 0;
+        padding: 1.2rem 0.8rem;
 
         button {
             width: 100%;
             background-color: #000;
-            padding-left: 0.8rem;
             text-align: start;
             color: #fff;
             font-size: 18px;

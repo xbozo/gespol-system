@@ -2,6 +2,7 @@ import { useState } from "react";
 import { PlanningType } from "../../@types/PlanningType";
 
 import { PlanningActions } from "../../reducers/PlanningsReducer";
+import { dateFormatter } from "../../utils/dateFormatter";
 import * as C from "./styles";
 
 interface Props extends PlanningType {
@@ -24,6 +25,8 @@ export function PlanningItem({
     const [editedLocation, setEditedLocation] = useState("");
     const [editedResponsible, setEditedResponsible] = useState("");
     const [editedDate, setEditedDate] = useState("");
+
+    const formattedDate = dateFormatter(date);
 
     function handleDeletePlanning() {
         onDelete(id);
@@ -58,10 +61,12 @@ export function PlanningItem({
             <h2>{title}</h2>
             <h3>{location}</h3>
             <h3>{responsible}</h3>
-            <h3>{date}</h3>
+            <h3>{formattedDate}</h3>
             <button onClick={handleDeletePlanning}>Apagar</button>
+            <br />
             <button onClick={() => setIsEditModalOpen(true)}>Editar</button>
 
+            {/* Edit modal and edit operation logic*/}
             {isEditModalOpen && (
                 <C.EditModalOverlay>
                     <C.EditModalContainer>
