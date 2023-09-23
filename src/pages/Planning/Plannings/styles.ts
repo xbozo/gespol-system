@@ -16,24 +16,17 @@ export const Content = styled.section`
     max-height: 100vh;
     overflow: scroll;
 
-    .form {
-        display: flex;
-        gap: 1rem;
-
-        input {
-            padding: 1rem;
-            border: 1px solid gray;
-            border-radius: 5px;
-        }
+    .new-operation-btn {
+        text-align: end;
 
         button {
             border-radius: 5px;
-            padding: 0 1rem;
-            background-color: #008744;
+            padding: 0.8rem 5rem;
+            background-color: #007bff;
             color: #fff;
 
             &:hover {
-                filter: brightness(0.9);
+                opacity: 0.8;
             }
         }
     }
@@ -47,9 +40,8 @@ export const Content = styled.section`
 `;
 
 export const PlanningsTable = styled(Table)`
-    max-width: 144rem;
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 2.4rem;
     color: rgb(39 39 42);
 
     th {

@@ -23,7 +23,10 @@ export function Header({ activeItem }: Props) {
                 <BsGrid />
                 <span>Dashboard</span>
             </Link>
-            <Link to="/planning" id={activeItem === "planning" ? "active" : ""}>
+            <Link
+                to="/plannings"
+                id={activeItem === "plannings" ? "active" : ""}
+            >
                 <HiOutlineClipboardDocumentList />
                 <span>Planejamento</span>
             </Link>

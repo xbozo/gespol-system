@@ -1,20 +1,20 @@
-import { useEffect, useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { api } from "../../libs/axios";
-import { PlanningsReducer } from "../../reducers/PlanningsReducer";
+import { api } from "../../../libs/axios";
+import { PlanningsReducer } from "../../../reducers/PlanningsReducer";
 
-import { PlanningType } from "../../@types/PlanningType";
+import { PlanningType } from "../../../@types/PlanningType";
 
-import { Header } from "../../components/Header";
-import { PlanningItem } from "../../components/PlanningItem";
-import { Title } from "../../components/Title";
+import { Header } from "../../../components/Header";
+import { Title } from "../../../components/Title";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as C from "./styles";
 
-export function Planejamento() {
+export function NewOperation() {
     const [plannings, dispatch] = useReducer(PlanningsReducer, []);
 
     const [titleInput, setTitleInput] = useState<string>("");
@@ -22,14 +22,7 @@ export function Planejamento() {
     const [responsibleInput, setResponsibleInput] = useState<string>("");
     const [dateInput, setDateInput] = useState<string>("");
 
-    useEffect(() => {
-        api.get<PlanningType[]>("/plannings").then((response) => {
-            dispatch({
-                type: "setPlannings",
-                payload: response.data,
-            });
-        });
-    }, []);
+    const navigate = useNavigate();
 
     function handleAddPlanning() {
         if (
@@ -66,91 +59,80 @@ export function Planejamento() {
             });
         });
 
+        toast.success("Operação adicionada com sucesso.", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+
         setTitleInput("");
         setLocationInput("");
         setResponsibleInput("");
         setDateInput("");
+
+        navigate("/plannings");
     }
 
-    function handleDeletePlanning(id: string) {
-        api.delete(`/plannings/${id}`).then(() => {
-            dispatch({
-                type: "removePlanning",
-                payload: {
-                    id,
-                },
-            });
+    function discartedChangesToast() {
+        toast.error("Mudanças descartadas.", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
         });
+
+        navigate("/plannings");
     }
 
     return (
         <C.Container>
-            <Header activeItem={"planning"} />
+            <Header activeItem={"plannings"} />
 
             <C.Content>
-                <Title title={"Planejamento"} />
+                <Title title={"Novo Planejamento"} dashed={true} />
                 <div className="form">
                     <input
                         type="text"
                         placeholder="Título da Operação"
                         value={titleInput}
                         onChange={(e) => setTitleInput(e.target.value)}
-                        className="crud-input"
                     />
                     <input
                         type="text"
                         placeholder="Local do Planejamento"
                         value={locationInput}
                         onChange={(e) => setLocationInput(e.target.value)}
-                        className="crud-input"
                     />
                     <input
                         type="text"
                         placeholder="Responsável"
                         value={responsibleInput}
                         onChange={(e) => setResponsibleInput(e.target.value)}
-                        className="crud-input"
                     />
                     <input
                         type="date"
                         value={dateInput}
                         onChange={(e) => setDateInput(e.target.value)}
-                        className="crud-input"
                     />
-                    <button
-                        onClick={() => handleAddPlanning()}
-                        className="bg-blue-500 rounded py-2 ease-in-out duration-200 hover:bg-blue-600"
-                    >
+                </div>
+
+                <C.ButtonsContainer>
+                    <button className="discard" onClick={discartedChangesToast}>
+                        Descartar alterações
+                    </button>
+                    <button onClick={handleAddPlanning}>
                         Adicionar Operação
                     </button>
-                </div>
-                <C.PlanningsTable striped bordered hover responsive>
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome da Operação</th>
-                            <th scope="col">Local do Planejamento</th>
-                            <th scope="col">Data</th>
-                            <th scope="col">Responsável</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {plannings.map((item, index) => (
-                            <PlanningItem
-                                key={item.id}
-                                title={item.title}
-                                location={item.location}
-                                responsible={item.responsible}
-                                date={item.date}
-                                id={item.id}
-                                totalLength={index + 1}
-                                onDelete={handleDeletePlanning}
-                                dispatch={dispatch}
-                            />
-                        ))}
-                    </tbody>
-                </C.PlanningsTable>
+                </C.ButtonsContainer>
             </C.Content>
         </C.Container>
     );
