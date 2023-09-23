@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import * as C from "./styles";
 
 export function NewOperation() {
-    const [plannings, dispatch] = useReducer(PlanningsReducer, []);
+    const [, dispatch] = useReducer(PlanningsReducer, []);
 
     const [titleInput, setTitleInput] = useState<string>("");
     const [locationInput, setLocationInput] = useState<string>("");
