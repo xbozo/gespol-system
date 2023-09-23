@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Content = styled.section`
     width: 100%;
-    margin-left: 6rem;
+    padding: 0 6rem;
     display: flex;
     flex-direction: column;
     max-height: 100vh;

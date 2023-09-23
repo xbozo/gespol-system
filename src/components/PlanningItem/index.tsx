@@ -3,9 +3,17 @@ import { PlanningType } from "../../@types/PlanningType";
 
 import { PlanningActions } from "../../reducers/PlanningsReducer";
 import { dateFormatter } from "../../utils/dateFormatter";
+
+import { AiOutlineEye } from "react-icons/ai";
+import { BsPencil } from "react-icons/bs";
+import { FiTrash2 } from "react-icons/fi";
+import { toast } from "react-toastify";
+
+import { api } from "../../libs/axios";
 import * as C from "./styles";
 
 interface Props extends PlanningType {
+    totalLength: number;
     onDelete: (id: string) => void;
     dispatch: React.Dispatch<PlanningActions>;
 }
@@ -16,6 +24,7 @@ export function PlanningItem({
     responsible,
     date,
     id,
+    totalLength,
     onDelete,
     dispatch,
 }: Props) {
@@ -39,32 +48,80 @@ export function PlanningItem({
             editedResponsible.trim() === "" ||
             editedDate.trim() === ""
         ) {
-            alert("Preencha todos os campos.");
+            toast.error("Preencha corretamente todos os campos.", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         } else {
-            dispatch({
-                type: "editPlanning",
-                payload: {
-                    newTitle: editedTitle,
-                    newLocation: editedLocation,
-                    newDate: editedDate,
-                    newResponsible: editedResponsible,
-                    id,
-                },
+            const editedPlanning: PlanningType = {
+                title: editedTitle,
+                location: editedLocation,
+                date: editedDate,
+                responsible: editedResponsible,
+                id,
+            };
+
+            api.put(`/plannings/${id}`, editedPlanning).then(() => {
+                dispatch({
+                    type: "editPlanning",
+                    payload: {
+                        newTitle: editedTitle,
+                        newLocation: editedLocation,
+                        newDate: editedDate,
+                        newResponsible: editedResponsible,
+                        id,
+                    },
+                });
             });
 
             setIsEditModalOpen(false);
+            setEditedTitle("");
+            setEditedLocation("");
+            setEditedResponsible("");
+            setEditedDate("");
         }
     }
 
     return (
-        <C.Container>
-            <h2>{title}</h2>
-            <h3>{location}</h3>
-            <h3>{responsible}</h3>
-            <h3>{formattedDate}</h3>
-            <button onClick={handleDeletePlanning}>Apagar</button>
-            <br />
-            <button onClick={() => setIsEditModalOpen(true)}>Editar</button>
+        <>
+            <C.TRow>
+                <th scope="row">{totalLength}</th>
+                <td>{title}</td>
+                <td>{location}</td>
+                <td>{formattedDate}</td>
+                <td>{responsible?.toUpperCase()}</td>
+                <td className="actions-td">
+                    <div className="edit-actions">
+                        <button id="visualizeButton">
+                            <div className="actionsimg-container">
+                                <AiOutlineEye />
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setIsEditModalOpen(true)}
+                            id="editButton"
+                        >
+                            <div className="actionsimg-container">
+                                <BsPencil />
+                            </div>
+                        </button>
+                        <button
+                            onClick={handleDeletePlanning}
+                            id="deleteButton"
+                        >
+                            <div className="actionsimg-container">
+                                <FiTrash2 />
+                            </div>
+                        </button>
+                    </div>
+                </td>
+            </C.TRow>
 
             {/* Edit modal and edit operation logic*/}
             {isEditModalOpen && (
@@ -119,6 +176,6 @@ export function PlanningItem({
                     </C.EditModalContainer>
                 </C.EditModalOverlay>
             )}
-        </C.Container>
+        </>
     );
 }

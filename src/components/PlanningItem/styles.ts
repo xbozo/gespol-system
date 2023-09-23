@@ -1,14 +1,71 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const TRow = styled.tr`
     width: 100%;
-    height: 12rem;
     color: #000;
     margin-top: 3rem;
 
-    h1 {
-        font-weight: bold;
-        font-size: 40px;
+    td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0.5rem 0;
+        font-weight: 500;
+    }
+
+    .actions-td {
+        width: 10%;
+    }
+
+    .edit-actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+
+        button {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 8px;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .actionsimg-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                height: 1.7rem;
+                width: 1.7rem;
+                font-weight: bold;
+            }
+        }
+    }
+
+    #visualizeButton {
+        border: 1px solid #007bff;
+
+        svg {
+            color: #007bff;
+        }
+    }
+
+    #editButton {
+        border: 1px solid #f6be2c;
+
+        svg {
+            color: #f6be2c;
+        }
+    }
+
+    #deleteButton {
+        border: 1px solid red;
+
+        svg {
+            color: red;
+        }
     }
 `;
 
@@ -25,7 +82,7 @@ export const EditModalOverlay = styled.div`
 `;
 
 export const EditModalContainer = styled.div`
-    background-color: transparent;
+    background-color: transparent !important;
     max-width: 70rem;
     max-height: 100%;
     width: 100%;

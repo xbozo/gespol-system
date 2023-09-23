@@ -1,3 +1,4 @@
+import Table from "react-bootstrap/Table";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -9,7 +10,7 @@ export const Container = styled.div`
 
 export const Content = styled.section`
     width: 100%;
-    margin-left: 6rem;
+    padding: 0 6rem;
     display: flex;
     flex-direction: column;
     max-height: 100vh;
@@ -42,5 +43,20 @@ export const Content = styled.section`
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+`;
+
+export const PlanningsTable = styled(Table)`
+    max-width: 144rem;
+    width: 100%;
+    margin-top: 4rem;
+    color: rgb(39 39 42);
+
+    th {
+        height: 4rem;
+        width: 2rem;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
     }
 `;
