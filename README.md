@@ -1,4 +1,4 @@
 ## To-do >
 
--   Toastify no lugar dos alerts
+-   Ordem de exibição da tabela invertida
 -   Responsividade mais dedicada pra tabela

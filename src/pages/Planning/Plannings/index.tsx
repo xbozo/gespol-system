@@ -48,7 +48,7 @@ export function Plannings() {
                 >
                     <button>Registrar Nova Operação</button>
                 </Link>
-                <C.PlanningsTable striped bordered hover responsive>
+                <C.PlanningsTable striped bordered hover>
                     <thead>
                         <tr>
                             <th scope="col">#</th>

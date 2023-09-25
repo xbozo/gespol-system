@@ -8,12 +8,21 @@ export const TRow = styled.tr`
     td {
         text-align: center;
         vertical-align: middle;
-        padding: 0.5rem 0;
+        padding: 0.5rem;
         font-weight: 500;
+
+        @media (max-width: 1024px) {
+            display: block;
+            font-weight: bold;
+        }
     }
 
     .actions-td {
         width: 10%;
+
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
     }
 
     .edit-actions {
@@ -28,6 +37,11 @@ export const TRow = styled.tr`
 
             &:hover {
                 opacity: 0.7;
+            }
+
+            @media (max-width: 1024px) {
+                width: 4rem;
+                height: 4rem;
             }
         }
 

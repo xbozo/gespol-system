@@ -21,12 +21,16 @@ export const Content = styled.section`
 
         button {
             border-radius: 5px;
-            padding: 0.8rem 5rem;
+            padding: 0.8rem;
             background-color: #007bff;
             color: #fff;
 
             &:hover {
                 opacity: 0.8;
+            }
+
+            @media (max-width: 1024px) {
+                width: 100%;
             }
         }
     }
@@ -50,5 +54,26 @@ export const PlanningsTable = styled(Table)`
         font-weight: bold;
         text-align: center;
         vertical-align: middle;
+    }
+
+    @media (max-width: 1024px) {
+        display: block;
+
+        th,
+        tr,
+        tbody {
+            display: block;
+            text-align: left;
+            width: 100%;
+        }
+
+        thead {
+            display: none;
+        }
+
+        thead,
+        tbody {
+            width: 100%;
+        }
     }
 `;
