@@ -79,6 +79,7 @@ export const EditModalOverlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1.6rem;
 `;
 
 export const EditModalContainer = styled.div`
@@ -100,7 +101,7 @@ export const EditModalContainer = styled.div`
     }
 
     h1 {
-        font-size: 3.6rem;
+        font-size: 3.2rem;
         color: #fff;
         font-weight: bold;
         margin-bottom: 1rem;

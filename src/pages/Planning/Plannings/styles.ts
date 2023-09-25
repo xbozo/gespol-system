@@ -21,7 +21,7 @@ export const Content = styled.section`
 
         button {
             border-radius: 5px;
-            padding: 0.8rem;
+            padding: 0.8rem 4rem;
             background-color: #007bff;
             color: #fff;
 
@@ -65,6 +65,10 @@ export const PlanningsTable = styled(Table)`
             display: block;
             text-align: left;
             width: 100%;
+        }
+
+        tr {
+            margin-top: 0;
         }
 
         thead {

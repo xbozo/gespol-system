@@ -47,6 +47,10 @@ export const ButtonsContainer = styled.div`
         padding: 1rem 6rem;
         color: #fff;
         text-align: center;
+
+        @media (max-width: 1024px) {
+            padding: 1rem;
+        }
     }
 
     .discard {
