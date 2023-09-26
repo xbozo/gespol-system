@@ -23,7 +23,7 @@ export function Plannings() {
                 payload: response.data,
             });
         });
-    }, []);
+    }, [plannings]);
 
     function handleDeletePlanning(id: string) {
         api.delete(`/plannings/${id}`).then(() => {
@@ -42,12 +42,15 @@ export function Plannings() {
 
             <C.Content>
                 <Title title={"Planejamento"} />
-                <Link
-                    to="/plannings/newoperation"
-                    className="new-operation-btn"
-                >
-                    <button>Registrar Nova Operação</button>
-                </Link>
+                <div className="new-operation-btn">
+                    <Link
+                        to="/plannings/newoperation"
+                        className="new-operation-btn"
+                    >
+                        <button>Registrar Nova Operação</button>
+                    </Link>
+                </div>
+
                 <C.PlanningsTable striped bordered hover>
                     <thead>
                         <tr>
