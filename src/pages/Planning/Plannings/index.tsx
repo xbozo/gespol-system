@@ -70,7 +70,6 @@ export function Plannings() {
                                 id={item.id}
                                 totalLength={index + 1}
                                 onDelete={handleDeletePlanning}
-                                dispatch={dispatch}
                             />
                         ))}
                     </tbody>

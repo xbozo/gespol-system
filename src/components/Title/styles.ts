@@ -5,9 +5,25 @@ export const Container = styled.div`
     color: #000;
     margin: 3rem 0;
 
-    h1 {
+    div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .suffix {
+        font-size: 4rem;
         font-weight: bold;
-        font-size: 40px;
+    }
+
+    .title {
+        font-weight: 400;
+        font-size: 4rem;
+    }
+
+    .suffix,
+    .title {
+        margin-bottom: 0;
     }
 
     .borderB {

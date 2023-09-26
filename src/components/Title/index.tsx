@@ -1,14 +1,18 @@
 import * as C from "./styles";
 
 type Props = {
+    suffix?: string;
     title: string;
     dashed?: boolean;
 };
 
-export function Title({ title, dashed }: Props) {
+export function Title({ suffix, title, dashed }: Props) {
     return (
         <C.Container>
-            <h1 className={dashed ? "borderB" : ""}>{title}</h1>
+            <div className={dashed ? "borderB" : ""}>
+                <h1 className="suffix">{suffix}</h1>
+                <h1 className="title">{title}</h1>
+            </div>
         </C.Container>
     );
 }

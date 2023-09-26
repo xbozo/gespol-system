@@ -1,21 +1,20 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { PlanningType } from "../../@types/PlanningType";
 
-import { PlanningActions } from "../../reducers/PlanningsReducer";
+import { PlanningsReducer } from "../../reducers/PlanningsReducer";
 import { dateFormatter } from "../../utils/dateFormatter";
 
 import { AiOutlineEye } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 import { FiTrash2 } from "react-icons/fi";
 
+import { useNavigate } from "react-router-dom";
 import { api } from "../../libs/axios";
-import { PlanningEditModal } from "../PlanningEditModal";
 import * as C from "./styles";
 
 interface Props extends PlanningType {
     totalLength: number;
     onDelete: (id: string) => void;
-    dispatch: React.Dispatch<PlanningActions>;
 }
 
 export function PlanningItem({
@@ -25,11 +24,10 @@ export function PlanningItem({
     date,
     id,
     totalLength,
-    dispatch,
 }: Props) {
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-
     const formattedDate = dateFormatter(date);
+
+    const navigate = useNavigate();
 
     function handleDeletePlanning(id: string) {
         api.delete(`/plannings/${id}`).then(() => {
@@ -41,6 +39,12 @@ export function PlanningItem({
             });
         });
     }
+
+    function handleOperationDetails() {
+        navigate(`/plannings/${id}`);
+    }
+
+    const [, dispatch] = useReducer(PlanningsReducer, []);
 
     return (
         <>
@@ -58,7 +62,7 @@ export function PlanningItem({
                             </div>
                         </button>
                         <button
-                            onClick={() => setIsEditModalOpen(true)}
+                            onClick={handleOperationDetails}
                             id="editButton"
                         >
                             <div className="actionsimg-container">
@@ -76,13 +80,6 @@ export function PlanningItem({
                     </div>
                 </td>
             </C.TRow>
-
-            <PlanningEditModal
-                id={id}
-                dispatch={dispatch}
-                isEditModalOpen={isEditModalOpen}
-                closeEditModal={() => setIsEditModalOpen(false)}
-            />
         </>
     );
 }
