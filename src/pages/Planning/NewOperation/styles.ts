@@ -13,7 +13,6 @@ export const Content = styled.section`
     display: flex;
     flex-direction: column;
     max-height: 100vh;
-    overflow: scroll;
 
     .form {
         display: flex;
@@ -29,6 +28,10 @@ export const Content = styled.section`
             border-radius: 5px;
         }
     }
+
+    @media (max-width: 800px) {
+        padding: 0 3rem;
+    }
 `;
 
 export const ButtonsContainer = styled.div`
@@ -37,20 +40,12 @@ export const ButtonsContainer = styled.div`
     margin-top: 3.2rem;
     gap: 1.6rem;
 
-    @media (max-width: 1024px) {
-        flex-direction: column;
-    }
-
     .discard,
     button {
         border-radius: 5px;
         padding: 1rem 6rem;
         color: #fff;
         text-align: center;
-
-        @media (max-width: 1024px) {
-            padding: 1rem;
-        }
     }
 
     .discard {
@@ -68,6 +63,15 @@ export const ButtonsContainer = styled.div`
 
         &:hover {
             filter: brightness(0.9);
+        }
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+
+        .discard,
+        button {
+            padding: 1rem;
         }
     }
 `;

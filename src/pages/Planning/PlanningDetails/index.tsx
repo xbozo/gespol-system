@@ -45,7 +45,7 @@ export function PlanningDetails() {
     }, [id]);
 
     function discartedChangesToast() {
-        toast.error("Mudanças descartadas.", {
+        toast.error("Modificações descartadas.", {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -146,9 +146,6 @@ export function PlanningDetails() {
                                 : " Visualizando Operação"}
                         </h3>
                     </div>
-                    <button id="edit" onClick={handleToggleEditPanel}>
-                        Editar Operação
-                    </button>
                 </C.ButtonsContainer>
 
                 <div className="form">
@@ -191,18 +188,24 @@ export function PlanningDetails() {
                             >
                                 Voltar
                             </button>
+                            <button id="edit" onClick={handleToggleEditPanel}>
+                                Editar Operação
+                            </button>
                         </>
                     )}
                     {isEditOptionsEnabled && (
                         <>
+                            <button id="save" onClick={handleSaveEditChanges}>
+                                Salvar Alterações
+                            </button>
+                            <button id="edit" onClick={handleToggleEditPanel}>
+                                Editar Operação
+                            </button>
                             <button
                                 id="discard"
                                 onClick={discartedChangesToast}
                             >
                                 Descartar alterações
-                            </button>
-                            <button id="save" onClick={handleSaveEditChanges}>
-                                Salvar Alterações
                             </button>
                         </>
                     )}

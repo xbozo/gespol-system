@@ -79,7 +79,7 @@ export function NewOperation() {
     }
 
     function discartedChangesToast() {
-        toast.error("Mudanças descartadas.", {
+        toast.error("Adição descartada.", {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -127,7 +127,7 @@ export function NewOperation() {
 
                 <C.ButtonsContainer>
                     <button className="discard" onClick={discartedChangesToast}>
-                        Descartar alterações
+                        Retornar
                     </button>
                     <button onClick={handleAddPlanning}>
                         Adicionar Operação

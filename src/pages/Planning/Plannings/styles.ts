@@ -28,10 +28,6 @@ export const Content = styled.section`
             &:hover {
                 opacity: 0.8;
             }
-
-            @media (max-width: 1024px) {
-                width: 100%;
-            }
         }
     }
 
@@ -40,6 +36,16 @@ export const Content = styled.section`
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+    @media (max-width: 800px) {
+        padding: 1rem 3rem;
+    }
+
+    @media (max-width: 1024px) {
+        .new-operation-btn button {
+            width: 100%;
+        }
     }
 `;
 

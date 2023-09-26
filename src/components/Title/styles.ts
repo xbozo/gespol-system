@@ -21,6 +21,10 @@ export const Container = styled.div`
         font-size: 4rem;
     }
 
+    .bold {
+        font-weight: bold;
+    }
+
     .suffix,
     .title {
         margin-bottom: 0;
@@ -29,5 +33,17 @@ export const Container = styled.div`
     .borderB {
         border-bottom: 1px dashed #bbb !important;
         padding-bottom: 1.6rem;
+    }
+
+    @media (max-width: 1024px) {
+        div {
+            flex-direction: column;
+            align-items: initial;
+        }
+
+        .title,
+        .suffix {
+            font-size: 3rem;
+        }
     }
 `;

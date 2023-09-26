@@ -13,7 +13,6 @@ export const Content = styled.section`
     display: flex;
     flex-direction: column;
     max-height: 100vh;
-    overflow: scroll;
 
     .form {
         display: flex;
@@ -40,22 +39,22 @@ export const Content = styled.section`
         align-items: center;
         border-bottom: 1px solid gray;
         color: #e3963e;
+        padding-bottom: 0.5rem;
 
         h3 {
             margin-bottom: 0;
         }
     }
+
+    @media (max-width: 800px) {
+        padding: 0 3rem;
+    }
 `;
 
 export const ButtonsContainer = styled.div`
     display: flex;
-    justify-content: space-between;
     margin-top: 3.2rem;
     gap: 1.6rem;
-
-    @media (max-width: 1024px) {
-        flex-direction: column;
-    }
 
     button {
         border-radius: 5px;
@@ -66,10 +65,6 @@ export const ButtonsContainer = styled.div`
 
         &:hover {
             filter: brightness(0.9);
-        }
-
-        @media (max-width: 1024px) {
-            padding: 1rem;
         }
     }
 
@@ -87,8 +82,20 @@ export const ButtonsContainer = styled.div`
         background-color: #e3963e;
     }
 
-    #edit,
-    #return {
-        margin-left: auto;
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        padding-bottom: 1.2rem;
+
+        #discard,
+        #edit,
+        #save,
+        #return {
+            padding: 1rem;
+        }
+
+        #edit,
+        #return {
+            margin-left: initial;
+        }
     }
 `;

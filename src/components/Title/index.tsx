@@ -11,7 +11,9 @@ export function Title({ suffix, title, dashed }: Props) {
         <C.Container>
             <div className={dashed ? "borderB" : ""}>
                 <h1 className="suffix">{suffix}</h1>
-                <h1 className="title">{title}</h1>
+                <h1 className={`${"title"} ${suffix ? "" : "bold"}`}>
+                    {title}
+                </h1>
             </div>
         </C.Container>
     );

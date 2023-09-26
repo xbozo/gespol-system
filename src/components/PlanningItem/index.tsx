@@ -27,6 +27,8 @@ export function PlanningItem({
 }: Props) {
     const formattedDate = dateFormatter(date);
 
+    const [, dispatch] = useReducer(PlanningsReducer, []);
+
     const navigate = useNavigate();
 
     function handleDeletePlanning(id: string) {
@@ -44,8 +46,6 @@ export function PlanningItem({
         navigate(`/plannings/${id}`);
     }
 
-    const [, dispatch] = useReducer(PlanningsReducer, []);
-
     return (
         <>
             <C.TRow>
@@ -55,7 +55,7 @@ export function PlanningItem({
                 <td>{formattedDate}</td>
                 <td>{responsible?.toUpperCase()}</td>
                 <td className="actions-td">
-                    <div className="edit-actions">
+                    <C.EditActions>
                         <button id="visualizeButton">
                             <div className="actionsimg-container">
                                 <AiOutlineEye />
@@ -77,7 +77,7 @@ export function PlanningItem({
                                 <FiTrash2 />
                             </div>
                         </button>
-                    </div>
+                    </C.EditActions>
                 </td>
             </C.TRow>
         </>
