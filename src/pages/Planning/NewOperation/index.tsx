@@ -18,6 +18,7 @@ export function NewOperation() {
     const [, dispatch] = useReducer(PlanningsReducer, []);
 
     const [titleInput, setTitleInput] = useState<string>("");
+    const [descriptionInput, setDescriptionInput] = useState<string>("");
     const [locationInput, setLocationInput] = useState<string>("");
     const [responsibleInput, setResponsibleInput] = useState<string>("");
     const [dateInput, setDateInput] = useState<string>("");
@@ -27,6 +28,7 @@ export function NewOperation() {
     function handleAddPlanning() {
         if (
             titleInput.trim() === "" ||
+            descriptionInput.trim() === "" ||
             locationInput.trim() === "" ||
             responsibleInput.trim() === "" ||
             dateInput.trim() === ""
@@ -37,6 +39,7 @@ export function NewOperation() {
 
         const newPlanning: PlanningType = {
             title: titleInput,
+            description: descriptionInput,
             location: locationInput,
             date: dateInput,
             responsible: responsibleInput,
@@ -52,10 +55,10 @@ export function NewOperation() {
 
         toast.success("Operação adicionada com sucesso.");
 
-        setTitleInput("");
-        setLocationInput("");
-        setResponsibleInput("");
-        setDateInput("");
+        // setTitleInput("");
+        // setLocationInput("");
+        // setResponsibleInput("");
+        // setDateInput("");
 
         navigate("/plannings");
     }
@@ -78,6 +81,11 @@ export function NewOperation() {
                         placeholder="Título da Operação"
                         value={titleInput}
                         onChange={(e) => setTitleInput(e.target.value)}
+                    />
+                    <textarea
+                        placeholder="Descrição da Operação"
+                        value={descriptionInput}
+                        onChange={(e) => setDescriptionInput(e.target.value)}
                     />
                     <input
                         type="text"

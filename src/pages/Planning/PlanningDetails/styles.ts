@@ -22,7 +22,8 @@ export const Content = styled.section`
         gap: 1.2rem;
         margin-top: 2.4rem;
 
-        input {
+        input,
+        textarea {
             padding: 1rem;
             border: 1px solid gray;
             border-radius: 5px;
@@ -30,6 +31,11 @@ export const Content = styled.section`
             &:disabled {
                 cursor: not-allowed;
             }
+        }
+
+        textarea {
+            resize: none;
+            height: 12rem;
         }
     }
 

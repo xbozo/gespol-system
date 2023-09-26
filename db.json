@@ -1,14 +1,8 @@
 {
   "plannings": [
     {
-      "title": "Operação Lava Jato",
-      "location": "Brasília",
-      "date": "2014-03-17",
-      "responsible": "Juiz Moro",
-      "id": "2d0187a7-0be7-4dd7-8fa8-d1c5fe8dd7b0"
-    },
-    {
       "title": "Operação Carne Fraca",
+      "description": "Investigação sobre a qualidade da carne no Brasil",
       "location": "Curitiba",
       "date": "2017-03-17",
       "responsible": "Delegado Nunes",
@@ -16,6 +10,7 @@
     },
     {
       "title": "Operação Mãos Limpas",
+      "description": "Combate à corrupção na política italiana",
       "location": "Rio de Janeiro",
       "date": "2003-06-21",
       "responsible": "Procurador Costa",
@@ -23,6 +18,7 @@
     },
     {
       "title": "Operação Zelotes",
+      "description": "Investigação de fraudes em julgamentos fiscais",
       "location": "São Paulo",
       "date": "2015-10-04",
       "responsible": "Delegado Silva",
@@ -30,6 +26,7 @@
     },
     {
       "title": "Operação Laranja Mecânica",
+      "description": "Investigação de crimes políticos",
       "location": "Brasília",
       "date": "2018-08-12",
       "responsible": "Deputado Alves",
@@ -37,6 +34,7 @@
     },
     {
       "title": "Operação Satiagraha",
+      "description": "Investigação de crimes financeiros",
       "location": "São Paulo",
       "date": "2008-07-08",
       "responsible": "Agente Santos",
@@ -44,6 +42,7 @@
     },
     {
       "title": "Operação Ararath",
+      "description": "Investigação de crimes financeiros em Mato Grosso",
       "location": "Cuiabá",
       "date": "2013-09-25",
       "responsible": "Senador Lima",
@@ -51,6 +50,7 @@
     },
     {
       "title": "Operação Hurricane",
+      "description": "Investigação de corrupção policial",
       "location": "Rio de Janeiro",
       "date": "2007-05-18",
       "responsible": "Delegado Fernandes",
@@ -58,10 +58,19 @@
     },
     {
       "title": "Operação Monte Carlo",
+      "description": "Operação de combate à corrupção em Goiás",
       "location": "Goiânia",
       "date": "2012-02-07",
       "responsible": "Deputado Souza",
       "id": "4eaaddda-86f2-44f4-812c-1aaf8716a422"
+    },
+    {
+      "title": "Operação Lince",
+      "description": "Investigação de tráfico de drogas",
+      "location": "Fortaleza",
+      "date": "2019-11-30",
+      "responsible": "Policial Silva",
+      "id": "b22aef5a-71a2-41b7-8e68-2d1cc3199e73"
     }
   ]
 }

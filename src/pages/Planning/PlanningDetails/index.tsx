@@ -17,6 +17,7 @@ export function PlanningDetails() {
     const [isEditOptionsEnabled, setIsEditOptionsEnabled] = useState(false);
 
     const [titleInput, setTitleInput] = useState<string>("");
+    const [descriptionInput, setDescriptionInput] = useState<string>("");
     const [locationInput, setLocationInput] = useState<string>("");
     const [responsibleInput, setResponsibleInput] = useState<string>("");
     const [dateInput, setDateInput] = useState<string>("");
@@ -33,6 +34,7 @@ export function PlanningDetails() {
                 const planningData = response.data;
 
                 setTitleInput(planningData.title);
+                setDescriptionInput(planningData.description);
                 setLocationInput(planningData.location);
                 setResponsibleInput(planningData.responsible);
                 setDateInput(planningData.date);
@@ -60,6 +62,7 @@ export function PlanningDetails() {
     function handleSaveEditChanges() {
         if (
             titleInput.trim() === "" ||
+            descriptionInput.trim() === "" ||
             locationInput.trim() === "" ||
             responsibleInput.trim() === "" ||
             dateInput.trim() === "" ||
@@ -69,6 +72,7 @@ export function PlanningDetails() {
         } else {
             const editedPlanning: PlanningType = {
                 title: titleInput,
+                description: descriptionInput,
                 location: locationInput,
                 date: dateInput,
                 responsible: responsibleInput,
@@ -80,6 +84,7 @@ export function PlanningDetails() {
                     type: "editPlanning",
                     payload: {
                         newTitle: titleInput,
+                        newDescription: descriptionInput,
                         newLocation: locationInput,
                         newDate: dateInput,
                         newResponsible: responsibleInput,
@@ -135,10 +140,15 @@ export function PlanningDetails() {
                 <div className="form">
                     <input
                         type="text"
-                        name="title"
                         placeholder="Título da Operação"
                         value={titleInput}
                         onChange={(e) => setTitleInput(e.target.value)}
+                        disabled={!isEditOptionsEnabled}
+                    />
+                    <textarea
+                        placeholder="Descrição da Operação"
+                        value={descriptionInput}
+                        onChange={(e) => setDescriptionInput(e.target.value)}
                         disabled={!isEditOptionsEnabled}
                     />
                     <input

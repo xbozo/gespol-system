@@ -15,6 +15,7 @@ type EditAction = {
     type: "editPlanning";
     payload: {
         newTitle: string;
+        newDescription: string;
         newLocation: string;
         newDate: string;
         newResponsible: string;
@@ -44,6 +45,7 @@ export function PlanningsReducer(
                 ...plannings,
                 {
                     title: action.payload.title,
+                    description: action.payload.description,
                     location: action.payload.location,
                     date: action.payload.date,
                     responsible: action.payload.responsible,
@@ -60,6 +62,7 @@ export function PlanningsReducer(
             return plannings.map((planning) => {
                 if (planning.id === action.payload.id) {
                     planning.title = action.payload.newTitle;
+                    planning.description = action.payload.newDescription;
                     planning.location = action.payload.newLocation;
                     planning.date = action.payload.newDate;
                     planning.responsible = action.payload.newResponsible;
