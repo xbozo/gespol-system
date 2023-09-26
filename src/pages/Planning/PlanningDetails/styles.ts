@@ -68,7 +68,7 @@ export const ButtonsContainer = styled.div`
         }
     }
 
-    #discard {
+    .discard-btn {
         border: 1px solid #ff2c2c;
         background-color: transparent;
         color: #ff2c2c;
@@ -86,7 +86,7 @@ export const ButtonsContainer = styled.div`
         flex-direction: column;
         padding-bottom: 1.2rem;
 
-        #discard,
+        .discard-btn,
         #edit,
         #save,
         #return {

@@ -1,7 +1,5 @@
-import { useReducer } from "react";
 import { PlanningType } from "../../@types/PlanningType";
 
-import { PlanningsReducer } from "../../reducers/PlanningsReducer";
 import { dateFormatter } from "../../utils/dateFormatter";
 
 import { AiOutlineEye } from "react-icons/ai";
@@ -9,12 +7,10 @@ import { BsPencil } from "react-icons/bs";
 import { FiTrash2 } from "react-icons/fi";
 
 import { useNavigate } from "react-router-dom";
-import { api } from "../../libs/axios";
 import * as C from "./styles";
 
 interface Props extends PlanningType {
     totalLength: number;
-    onDelete: (id: string) => void;
 }
 
 export function PlanningItem({
@@ -27,24 +23,7 @@ export function PlanningItem({
 }: Props) {
     const formattedDate = dateFormatter(date);
 
-    const [, dispatch] = useReducer(PlanningsReducer, []);
-
     const navigate = useNavigate();
-
-    function handleDeletePlanning(id: string) {
-        api.delete(`/plannings/${id}`).then(() => {
-            dispatch({
-                type: "removePlanning",
-                payload: {
-                    id,
-                },
-            });
-        });
-    }
-
-    function handleOperationDetails() {
-        navigate(`/plannings/${id}`);
-    }
 
     return (
         <>
@@ -56,13 +35,16 @@ export function PlanningItem({
                 <td>{responsible?.toUpperCase()}</td>
                 <td className="actions-td">
                     <C.EditActions>
-                        <button id="visualizeButton">
+                        <button
+                            id="visualizeButton"
+                            onClick={() => navigate(`/plannings/${id}`)}
+                        >
                             <div className="actionsimg-container">
                                 <AiOutlineEye />
                             </div>
                         </button>
                         <button
-                            onClick={handleOperationDetails}
+                            onClick={() => navigate(`/plannings/${id}`)}
                             id="editButton"
                         >
                             <div className="actionsimg-container">
@@ -70,7 +52,7 @@ export function PlanningItem({
                             </div>
                         </button>
                         <button
-                            onClick={() => handleDeletePlanning(id)}
+                            onClick={() => navigate(`/plannings/${id}`)}
                             id="deleteButton"
                         >
                             <div className="actionsimg-container">

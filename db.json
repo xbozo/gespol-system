@@ -1,11 +1,67 @@
 {
   "plannings": [
     {
-      "title": "Guarda Evento",
-      "location": "Arena Pantanal",
-      "date": "2023-07-29",
-      "responsible": "DEL. Gerson Machado",
-      "id": "70b79c17-6a8a-4fae-a558-1eff0f990587"
+      "title": "Operação Lava Jato",
+      "location": "Brasília",
+      "date": "2014-03-17",
+      "responsible": "Juiz Moro",
+      "id": "2d0187a7-0be7-4dd7-8fa8-d1c5fe8dd7b0"
+    },
+    {
+      "title": "Operação Carne Fraca",
+      "location": "Curitiba",
+      "date": "2017-03-17",
+      "responsible": "Delegado Nunes",
+      "id": "a4ec29eb-ba89-4d6f-9b1a-15c41cda9a06"
+    },
+    {
+      "title": "Operação Mãos Limpas",
+      "location": "Rio de Janeiro",
+      "date": "2003-06-21",
+      "responsible": "Procurador Costa",
+      "id": "9b46b5a6-0e8f-46ab-92e3-88edc7ad5eb0"
+    },
+    {
+      "title": "Operação Zelotes",
+      "location": "São Paulo",
+      "date": "2015-10-04",
+      "responsible": "Delegado Silva",
+      "id": "f13ad500-5422-4057-8e6f-ba2352b9e2a1"
+    },
+    {
+      "title": "Operação Laranja Mecânica",
+      "location": "Brasília",
+      "date": "2018-08-12",
+      "responsible": "Deputado Alves",
+      "id": "c0eb3ca6-7cfd-4c74-80f1-49a26ea06272"
+    },
+    {
+      "title": "Operação Satiagraha",
+      "location": "São Paulo",
+      "date": "2008-07-08",
+      "responsible": "Agente Santos",
+      "id": "08b9e04e-0e88-4f02-9601-4986579da590"
+    },
+    {
+      "title": "Operação Ararath",
+      "location": "Cuiabá",
+      "date": "2013-09-25",
+      "responsible": "Senador Lima",
+      "id": "a750a3ab-2f5b-4fbf-8256-2a66f51f4a11"
+    },
+    {
+      "title": "Operação Hurricane",
+      "location": "Rio de Janeiro",
+      "date": "2007-05-18",
+      "responsible": "Delegado Fernandes",
+      "id": "6b8f4a75-8604-4617-a558-1a6e7d4e38dd"
+    },
+    {
+      "title": "Operação Monte Carlo",
+      "location": "Goiânia",
+      "date": "2012-02-07",
+      "responsible": "Deputado Souza",
+      "id": "4eaaddda-86f2-44f4-812c-1aaf8716a422"
     }
   ]
 }

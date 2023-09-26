@@ -25,16 +25,8 @@ export function Plannings() {
         });
     }, [plannings]);
 
-    function handleDeletePlanning(id: string) {
-        api.delete(`/plannings/${id}`).then(() => {
-            dispatch({
-                type: "removePlanning",
-                payload: {
-                    id,
-                },
-            });
-        });
-    }
+    // Para que os itens exibidos sejam por ordem de adição, já que a API não lida com isso atualmente
+    const reversedPlannings = [...plannings].reverse();
 
     return (
         <C.Container>
@@ -63,7 +55,7 @@ export function Plannings() {
                         </tr>
                     </thead>
                     <tbody>
-                        {plannings.map((item, index) => (
+                        {reversedPlannings.map((item, index) => (
                             <PlanningItem
                                 key={item.id}
                                 title={item.title}
@@ -72,7 +64,6 @@ export function Plannings() {
                                 date={item.date}
                                 id={item.id}
                                 totalLength={index + 1}
-                                onDelete={handleDeletePlanning}
                             />
                         ))}
                     </tbody>

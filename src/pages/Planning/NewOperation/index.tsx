@@ -31,16 +31,7 @@ export function NewOperation() {
             responsibleInput.trim() === "" ||
             dateInput.trim() === ""
         ) {
-            toast.error("Preencha corretamente todos os campos.", {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error("Preencha corretamente todos os campos.");
             return;
         }
 
@@ -59,16 +50,7 @@ export function NewOperation() {
             });
         });
 
-        toast.success("Operação adicionada com sucesso.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+        toast.success("Operação adicionada com sucesso.");
 
         setTitleInput("");
         setLocationInput("");
@@ -79,16 +61,7 @@ export function NewOperation() {
     }
 
     function discartedChangesToast() {
-        toast.error("Adição descartada.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+        toast.error("Adição descartada.");
 
         navigate("/plannings");
     }
@@ -127,7 +100,7 @@ export function NewOperation() {
 
                 <C.ButtonsContainer>
                     <button className="discard" onClick={discartedChangesToast}>
-                        Retornar
+                        Descartar
                     </button>
                     <button onClick={handleAddPlanning}>
                         Adicionar Operação

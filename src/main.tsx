@@ -8,7 +8,15 @@ import { GlobalStyle } from "./styles/global";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <ToastContainer />
+        <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            closeOnClick
+            draggable
+            pauseOnHover
+            theme="light"
+        />
         <GlobalStyle />
         <RouterList />
     </React.StrictMode>

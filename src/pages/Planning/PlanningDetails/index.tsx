@@ -45,16 +45,7 @@ export function PlanningDetails() {
     }, [id]);
 
     function discartedChangesToast() {
-        toast.error("Modificações descartadas.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+        toast.error("Modificações descartadas.");
 
         navigate("/plannings");
     }
@@ -63,16 +54,7 @@ export function PlanningDetails() {
         // SE o usuário tiver permissão...
         setIsEditOptionsEnabled(!isEditOptionsEnabled);
         // SE o usuário NÃO tiver permissão...
-        // toast.error("Sem autorização para realizar essa ação.", {
-        //     position: "top-right",
-        //     autoClose: 3000,
-        //     hideProgressBar: false,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        //     theme: "light",
-        // });
+        // toast.error("Sem autorização para realizar essa ação.")
     }
 
     function handleSaveEditChanges() {
@@ -83,16 +65,7 @@ export function PlanningDetails() {
             dateInput.trim() === "" ||
             id === undefined
         ) {
-            toast.error("Preencha corretamente todos os campos.", {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error("Preencha corretamente todos os campos.");
         } else {
             const editedPlanning: PlanningType = {
                 title: titleInput,
@@ -115,19 +88,30 @@ export function PlanningDetails() {
                 });
             });
 
-            toast.success("Modificações realizadas com sucesso.", {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.success("Modificações realizadas com sucesso.");
 
             navigate("/plannings");
         }
+    }
+
+    function handleDeletePlanning() {
+        // SE o usuário tiver permissão...
+        if (id !== undefined) {
+            api.delete(`/plannings/${id}`).then(() => {
+                dispatch({
+                    type: "removePlanning",
+                    payload: {
+                        id,
+                    },
+                });
+            });
+            toast.success("Operação excluída com sucesso.");
+            navigate("/plannings");
+        } else {
+            toast.error("Ocorreu um erro ao realizar esta ação.");
+        }
+        // SE o usuário NÃO tiver permissão...
+        // toast.error("Sem autorização para realizar essa ação.")
     }
 
     return (
@@ -191,6 +175,12 @@ export function PlanningDetails() {
                             <button id="edit" onClick={handleToggleEditPanel}>
                                 Editar Operação
                             </button>
+                            <button
+                                className="discard-btn"
+                                onClick={handleDeletePlanning}
+                            >
+                                Excluir Operação
+                            </button>
                         </>
                     )}
                     {isEditOptionsEnabled && (
@@ -199,10 +189,10 @@ export function PlanningDetails() {
                                 Salvar Alterações
                             </button>
                             <button id="edit" onClick={handleToggleEditPanel}>
-                                Editar Operação
+                                Visualizar Operação
                             </button>
                             <button
-                                id="discard"
+                                className="discard-btn"
                                 onClick={discartedChangesToast}
                             >
                                 Descartar alterações
