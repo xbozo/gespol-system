@@ -1,5 +1,6 @@
-## To-do >
+## Instalação
 
--   Ordem de exibição da tabela invertida
--   Modal pra confirmação de delete do item
--   Adicionar estado de loading
+- A aplicação usa de placeholder o **JSON Server**.
+- Para rodar o db.json do projeto, use `npm run server`
+
+- Para rodar o projeto use `npm run dev`.

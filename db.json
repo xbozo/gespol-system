@@ -1,14 +1,6 @@
 {
   "plannings": [
     {
-      "title": "Operação Carne Fraca",
-      "description": "Investigação sobre a qualidade da carne no Brasil",
-      "location": "Curitiba",
-      "date": "2017-03-17",
-      "responsible": "Delegado Nunes",
-      "id": "a4ec29eb-ba89-4d6f-9b1a-15c41cda9a06"
-    },
-    {
       "title": "Operação Mãos Limpas",
       "description": "Combate à corrupção na política italiana",
       "location": "Rio de Janeiro",
